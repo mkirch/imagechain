@@ -1,0 +1,20 @@
+name: Sync with Hugging Face Hub
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sync With Hugging Face Hub
+      uses: nateraw/huggingface-sync-action@v0.0.5
+      with:
+        github_repo_id: mkirch/imagechain
+        huggingface_repo_id: kirch/ImageChain
+        repo_type: space
+        space_sdk: gradio
+        hf_token: ${{ secrets.HF_TOKEN }}
+        privte: true
